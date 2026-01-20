@@ -1,146 +1,94 @@
-# Road-Environment-Image-Segmentation-for-Autonomous-Cars
-Overview
+# Road Scene Image Segmentation for Autonomous Vehicles 🚗🧠
 
-This project focuses on semantic segmentation of urban road scenes as a core component of autonomous driving systems. The goal is to enable a vehicle to understand its surrounding environment by classifying each pixel of an image into meaningful road-related categories such as roads, pedestrians, vehicles, traffic signs, buildings, and vegetation.
+## Overview
+
+This project focuses on **semantic segmentation of urban road scenes** as a core component of autonomous driving systems. The goal is to enable a vehicle to understand its surrounding environment by classifying each pixel of an image into meaningful road-related categories such as **roads, pedestrians, vehicles, traffic signs, buildings, and vegetation**.
 
 By providing a detailed, pixel-level understanding of the scene, this project contributes to safer and more reliable decision-making in autonomous vehicles.
 
-Motivation
+---
 
-Autonomous vehicles rely heavily on computer vision to interpret complex urban environments. Unlike object detection, semantic segmentation provides fine-grained spatial understanding, which is crucial for:
+## Motivation
 
-Lane and road boundary recognition
+Autonomous vehicles rely heavily on computer vision to interpret complex urban environments. Unlike object detection, **semantic segmentation provides fine-grained spatial understanding**, which is crucial for:
 
-Pedestrian and vehicle awareness
-
-Traffic sign and signal interpretation
-
-Safe navigation in dense urban scenarios
+- Lane and road boundary recognition  
+- Pedestrian and vehicle awareness  
+- Traffic sign and signal interpretation  
+- Safe navigation in dense urban scenarios  
 
 This project aims to replicate this visual understanding using deep learning techniques applied to real-world urban data.
 
-Project Scope
+---
 
-📌 Task: Semantic image segmentation
+## Project Scope
 
-🤖 Model: Deep Learning (U-Net architecture)
+- **Task:** Semantic Image Segmentation  
+- **Model:** Deep Learning (U-Net architecture)  
+- **Domain:** Urban Road Environments  
+- **Approach:** Pixel-wise classification  
+- **Dataset:** Cityscapes  
 
-🛣️ Domain: Urban road environments
+---
 
-🧩 Approach: Pixel-wise classification of road scene images
+## Dataset: Cityscapes
 
-📊 Dataset: Cityscapes
+The project uses the **Cityscapes dataset**, a standard benchmark for urban scene understanding.
 
-Dataset: Cityscapes
+### Dataset Details
 
-The project uses the Cityscapes dataset, a widely adopted benchmark for urban scene understanding.
+- **Source:** Daimler AG, MPI Informatics, TU Darmstadt  
+- **Images:**  
+  - 5,000 finely annotated images  
+  - 20,000 coarsely annotated images  
+- **Resolution:** 2048 × 1024 pixels  
+- **Environment:** Urban street scenes from 50 German cities  
 
-Dataset Details
+### Semantic Classes
 
-Source: Daimler AG, MPI Informatics, TU Darmstadt
+Cityscapes defines **30 classes**, grouped into 8 categories:
 
-Images:
+- **Flat:** road, sidewalk, parking  
+- **Human:** person, rider  
+- **Vehicle:** car, truck, bus, motorcycle, bicycle  
+- **Construction:** building, wall, fence  
+- **Object:** pole, traffic sign, traffic light  
+- **Nature:** vegetation, terrain  
+- **Sky:** sky  
+- **Void:** ground, dynamic, static  
 
-5,000 finely annotated images
+---
 
-20,000 coarsely annotated images
+## Model Architecture: U-Net
 
-Resolution: 2048 × 1024 pixels
+This project implements a **U-Net convolutional neural network**, a widely used architecture for semantic segmentation.
 
-Environment: Urban street scenes from 50 German cities
+### Why U-Net?
 
-Semantic Classes
+- Encoder–decoder design captures both **global context** and **spatial precision**
+- Skip connections preserve fine-grained details
+- Highly effective for pixel-level prediction tasks
 
-Cityscapes defines 30 object classes, grouped into 8 categories:
+### Architecture Components
 
-Flat: road, sidewalk, parking
+- **Encoder:** Feature extraction using convolution and pooling  
+- **Bottleneck:** High-level semantic representation  
+- **Decoder:** Upsampling and spatial reconstruction  
+- **Skip Connections:** Improve segmentation accuracy  
 
-Human: person, rider
+---
 
-Vehicle: car, truck, bus, motorcycle, bicycle
+## Implementation
 
-Construction: building, wall, fence
+The project is implemented in **Python** using deep learning libraries and follows this workflow:
 
-Object: pole, traffic sign, traffic light
-
-Nature: vegetation, terrain
-
-Sky: sky
-
-Void: unlabeled or irrelevant regions
-
-Model Architecture: U-Net
-
-This project implements a U-Net convolutional neural network, a popular architecture for image segmentation.
-
-Why U-Net?
-
-Encoder–decoder structure captures both context and precise localization
-
-Skip connections preserve spatial details
-
-Highly effective for pixel-level prediction tasks
-
-Architecture Highlights
-
-Encoder: Extracts hierarchical features via convolution and pooling
-
-Bottleneck: Captures high-level semantic information
-
-Decoder: Upsamples feature maps to original resolution
-
-Skip Connections: Improve segmentation accuracy by retaining spatial context
-
-Implementation
-
-The project is implemented in Python using deep learning libraries and follows this workflow:
-
-Data loading and preprocessing
-
-Image normalization and mask handling
-
-U-Net model definition
-
-Training and validation
-
-Evaluation of segmentation outputs
+1. Data loading and preprocessing  
+2. Image normalization and mask handling  
+3. U-Net model definition  
+4. Model training and validation  
+5. Segmentation evaluation  
 
 The main implementation can be found in:
 
+```text
 ai2-autonomous-car.ipynb
-
-Results and Observations
-
-The model successfully learns to distinguish key urban elements such as roads, vehicles, and pedestrians.
-
-Semantic segmentation demonstrates strong potential for autonomous driving perception systems.
-
-Performance depends heavily on data quality and class balance.
-
-Future Work
-
-Possible extensions of this project include:
-
-🔹 Using more advanced architectures (DeepLabV3+, SegFormer)
-
-🔹 Improving class imbalance handling
-
-🔹 Real-time inference optimization
-
-🔹 Integration with object detection or path planning modules
-
-🔹 Training on larger or more diverse datasets
-
-References
-
-Cityscapes Dataset
-
-Ronneberger et al., U-Net: Convolutional Networks for Biomedical Image Segmentation
-
-Autonomous driving perception literature
-
-Author
-
-Santiago Caicedo
-AI & Software Development Enthusiast
-Interested in Computer Vision, Machine Learning, and Autonomous Systems
